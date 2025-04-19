@@ -7,7 +7,7 @@ export default async function Page() {
   function TeamPlayers({ id }: { id: number }) {
     return (
       <div className="mb-4 lg:mb-16">
-        <h2 className="text-2xl mb-2">{id} - {data.find(team => team.id === id)?.name}</h2>
+        <h2 className="text-2xl mb-2">{id} - {data.find((team: { id: number, name: string }) => team.id === id)?.name}</h2>
         <table className="table-auto">
           {data.filter((player: { id: number, pos: number, player: string, points: number }) => player.id === id).map(player => (
             <tr className="border-b" key={player.player}>
