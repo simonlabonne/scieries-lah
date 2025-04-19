@@ -1,6 +1,8 @@
+import { promises as fs } from 'fs';
+
 export default async function Page() {
-  const res = await fetch('http://localhost:3000/scieries-lah/scieries.json')
-  const data = await res.json()
+  const file = await fs.readFile(process.cwd() + '/src/app/scieries.json', 'utf8');
+  const data = JSON.parse(file);
 
   data.sort((a: { points: number }, b: { points: number }) => b.points - a.points);
 
