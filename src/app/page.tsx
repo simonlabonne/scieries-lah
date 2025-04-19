@@ -9,7 +9,7 @@ export default async function Page() {
       <div className="mb-4 lg:mb-16">
         <h2 className="text-2xl mb-2">{id} - {data.find(team => team.id === id)?.name}</h2>
         <table className="table-auto">
-          {data.filter(player => player.id === id).map(player => (
+          {data.filter((player: { id: number, pos: number, player: string, points: number }) => player.id === id).map(player => (
             <tr className="border-b" key={player.player}>
               <td className="p-2">{player.pos}</td>
               <td className="p-2">{player.player}</td>
