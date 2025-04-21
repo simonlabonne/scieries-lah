@@ -44,6 +44,6 @@ df_merge = df_merge.sort_values(by=['points'], ascending=False)
 df_merge['points'] = df_merge['points'].fillna(0)
 
 # %%
-teams.to_json('scieries.json', orient='records')
+df_merge.to_json('scieries.json', orient='records')
 
 
