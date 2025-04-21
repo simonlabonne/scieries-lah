@@ -11,13 +11,20 @@ export default async function Page() {
       <div className="mb-4 lg:mb-16">
         <h2 className="text-2xl mb-2">{id} - {data.find((team: { id: number, name: string }) => team.id === id)?.name}</h2>
         <table className="table-auto">
-          {data.filter((player: { id: number, pos: number, player: string, points: number }) => player.id === id).map((player: { id: number, pos: number, player: string, points: number }) => (
-            <tr className="border-b" key={player.player}>
-              <td className="p-2">{player.pos}</td>
-              <td className="p-2">{player.player}</td>
-              <td className="p-2">{player.points}</td>
+          <tbody>
+
+            {data.filter((player: { id: number, pos: number, player: string, points: number }) => player.id === id).map((player: { id: number, pos: number, player: string, points: number }) => (
+              <tr className="border-b" key={player.player}>
+                {/* <td className="p-2">{player.pos}</td> */}
+                <td className="p-2">{player.player}</td>
+                <td className="p-2">{player.points}</td>
+              </tr>
+            ))}
+            <tr>
+              <td className='p-2 text-right'>Total</td>
+              <td className='p-2'>{data.filter((player: { id: number, pos: number, player: string, points: number }) => player.id === id).reduce((total: number, player: { points: number }) => total + player.points, 0)}</td>
             </tr>
-          ))}
+          </tbody>
         </table>
       </div>
     );
