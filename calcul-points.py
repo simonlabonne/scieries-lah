@@ -29,6 +29,7 @@ while True:
 
 # %%
 nhl_stats = pd.DataFrame(compiler)
+nhl_stats['skaterFullName'] = nhl_stats['skaterFullName'].fillna(nhl_stats['goalieFullName'])
 nhl_stats = nhl_stats.drop(['points'], axis=1)
 
 # %%
