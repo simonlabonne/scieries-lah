@@ -1,19 +1,33 @@
-import { promises as fs } from 'fs';
+'use client';
 
-export default async function Page() {
-  const file = await fs.readFile('scieries.json', 'utf8');
-  const data = JSON.parse(file);
+import { useEffect, useState } from 'react';
 
-  data.sort((a: { points: number }, b: { points: number }) => b.points - a.points);
+export default function Page() {
+  const [data, setData] = useState<any[] | null>(null);
+
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/simonlabonne/scieries-lah/refs/heads/main/scieries.json')
+      .then((res) => res.json())
+      .then((json) => {
+        const sorted = json.sort((a: any, b: any) => b.points - a.points);
+        setData(sorted);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  if (!data) return <div>Loading...</div>;
 
   function TeamPlayers({ id }: { id: number }) {
+    const teamPlayers = (data!).filter((player) => player.id === id);
+    const teamName = (data!).find((team) => team.id === id)?.name;
+    const totalPoints = teamPlayers.reduce((total, p) => total + p.points, 0);
+
     return (
       <div className="mb-4 lg:mb-16">
-        <h2 className="text-2xl mb-2">{id} - {data.find((team: { id: number, name: string }) => team.id === id)?.name}</h2>
+        <h2 className="text-2xl mb-2">{id} - {teamName}</h2>
         <table className="table-auto">
           <tbody>
-
-            {data.filter((player: { id: number, pos: number, player: string, points: number }) => player.id === id).map((player: { id: number, pos: number, player: string, points: number }) => (
+            {teamPlayers.map((player) => (
               <tr className="border-b" key={player.player}>
                 {/* <td className="p-2">{player.pos}</td> */}
                 <td className="p-2">{player.player}</td>
@@ -22,7 +36,7 @@ export default async function Page() {
             ))}
             <tr>
               <td className='p-2 text-right'>Total</td>
-              <td className='p-2'>{data.filter((player: { id: number, pos: number, player: string, points: number }) => player.id === id).reduce((total: number, player: { points: number }) => total + player.points, 0)}</td>
+              <td className='p-2'>{totalPoints}</td>
             </tr>
           </tbody>
         </table>
@@ -34,49 +48,27 @@ export default async function Page() {
     <div className="container mx-auto mt-8">
       <h1 className="text-4xl mb-4">Scieries LAH</h1>
       <div className="grid lg:grid-cols-2 gap-4">
-        <div>
-          <TeamPlayers id={1} />
-        </div>
-        <div>
-          <TeamPlayers id={8} />
-        </div>
+        <div><TeamPlayers id={1} /></div>
+        <div><TeamPlayers id={8} /></div>
       </div>
       <div className="grid lg:grid-cols-2 gap-4">
-        <div>
-          <TeamPlayers id={2} />
-        </div>
-        <div>
-          <TeamPlayers id={7} />
-        </div>
+        <div><TeamPlayers id={2} /></div>
+        <div><TeamPlayers id={7} /></div>
       </div>
       <div className="grid lg:grid-cols-2 gap-4">
-        <div>
-          <TeamPlayers id={3} />
-        </div>
-        <div>
-          <TeamPlayers id={6} />
-        </div>
+        <div><TeamPlayers id={3} /></div>
+        <div><TeamPlayers id={6} /></div>
       </div>
       <div className="grid lg:grid-cols-2 gap-4">
-        <div>
-          <TeamPlayers id={4} />
-        </div>
-        <div>
-          <TeamPlayers id={5} />
-        </div>
+        <div><TeamPlayers id={4} /></div>
+        <div><TeamPlayers id={5} /></div>
       </div>
       <h2 className="text-4xl mb-4">Pool des poches</h2>
       <div className="grid lg:grid-cols-3 gap-4">
-        <div>
-          <TeamPlayers id={9} />
-        </div>
-        <div>
-          <TeamPlayers id={10} />
-        </div>
-        <div>
-          <TeamPlayers id={11} />
-        </div>
+        <div><TeamPlayers id={9} /></div>
+        <div><TeamPlayers id={10} /></div>
+        <div><TeamPlayers id={11} /></div>
       </div>
-    </div >
-  )
+    </div>
+  );
 }
