@@ -2,8 +2,16 @@
 
 import { useEffect, useState } from 'react';
 
+interface PlayerData {
+  id: number;
+  player: string;
+  pos: number;
+  points: number;
+  name: string;
+}
+
 export default function Page() {
-  const [data, setData] = useState<any[] | null>(null);
+  const [data, setData] = useState<PlayerData[] | null>(null);
 
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/simonlabonne/scieries-lah/refs/heads/main/scieries.json')
