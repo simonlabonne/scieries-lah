@@ -39,12 +39,12 @@ export default function Page() {
               <tr className="border-b" key={player.player}>
                 {/* <td className="p-2">{player.pos}</td> */}
                 <td className="p-2">{player.player}</td>
-                <td className="p-2">{player.points}</td>
+                <td className="p-2 text-center">{player.points}</td>
               </tr>
             ))}
             <tr>
               <td className='p-2 text-right'>Total</td>
-              <td className='p-2'>{totalPoints}</td>
+              <td className='p-2 text-center'>{totalPoints}</td>
             </tr>
           </tbody>
         </table>
