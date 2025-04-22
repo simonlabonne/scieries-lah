@@ -32,3 +32,10 @@ jobs:
     - name: Export stats
       run: |
         python calcul-points.py
+    - name: Commit files
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git add scieries.json
+        git commit -m "Update stats"
+        git push
