@@ -9,7 +9,7 @@ export default function Page() {
     fetch('https://raw.githubusercontent.com/simonlabonne/scieries-lah/refs/heads/main/scieries.json')
       .then((res) => res.json())
       .then((json) => {
-        const sorted = json.sort((a: any, b: any) => b.points - a.points);
+        const sorted = json.sort((a: { points: number }, b: { points: number }) => b.points - a.points);
         setData(sorted);
       })
       .catch((err) => console.error(err));
