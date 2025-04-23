@@ -15,17 +15,17 @@ compiler = []
 start = 0
 while True:
     data = get_data("https://api.nhle.com/stats/rest/en/skater/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22:%22points%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22goals%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22assists%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22playerId%22,%22direction%22:%22ASC%22%7D%5D&start="+str(start)+"&limit=100&cayenneExp=gameTypeId=3%20and%20seasonId%3C=20242025%20and%20seasonId%3E=20242025")
-    start += 100
     compiler.extend(data['data'])
-    if len(data) < 100:
+    if len(data['data']) < 100:
         break
+    start += 100
 start = 0
 while True:
     data = get_data("https://api.nhle.com/stats/rest/en/goalie/summary?isAggregate=false&isGame=false&sort=%5B%7B%22property%22:%22wins%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22savePct%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22playerId%22,%22direction%22:%22ASC%22%7D%5D&start="+str(start)+"&limit=100&cayenneExp=gameTypeId=3%20and%20seasonId%3C=20242025%20and%20seasonId%3E=20242025")
-    start += 100
     compiler.extend(data['data'])
-    if len(data) < 100:
+    if len(data['data']) < 100:
         break
+    start += 100
 
 # %%
 nhl_stats = pd.DataFrame(compiler)
