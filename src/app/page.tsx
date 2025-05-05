@@ -68,6 +68,7 @@ export default function Page() {
         <div><TeamPlayers id={1} data={bons} /></div>
         <div><TeamPlayers id={7} data={bons} /></div>
       </div>
+      <hr className="mb-16" />
       <div className="grid lg:grid-cols-2 gap-4">
         <div><TeamPlayers id={6} data={bons} /></div>
         <div><TeamPlayers id={5} data={bons} /></div>
