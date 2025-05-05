@@ -63,13 +63,19 @@ while True:
     start += 100
     
 nhl_stats = pd.DataFrame(compiler)
-nhl_stats['skaterFullName'] = nhl_stats['skaterFullName'].fillna(nhl_stats['goalieFullName'])
-nhl_stats = nhl_stats.drop(['points'], axis=1)
+try:
+    nhl_stats['skaterFullName'] = nhl_stats['skaterFullName'].fillna(nhl_stats['goalieFullName'])
+    nhl_stats = nhl_stats.drop(['points'], axis=1)
 
-df_merge = pd.merge(nhl_stats, bons, how="outer", left_on="skaterFullName", right_on="player")
-df_merge = df_merge.dropna(subset=['player'])
-df_merge['points'] = df_merge.apply(calculate_points, axis=1)
-df_merge = df_merge.sort_values(by=['points'], ascending=False)
-df_merge['points'] = df_merge['points'].fillna(0)
+    df_merge = pd.merge(nhl_stats, bons, how="outer", left_on="skaterFullName", right_on="player")
+    df_merge = df_merge.dropna(subset=['player'])
+    df_merge['points'] = df_merge.apply(calculate_points, axis=1)
+    df_merge = df_merge.sort_values(by=['points'], ascending=False)
+    df_merge['points'] = df_merge['points'].fillna(0)
 
-df_merge.to_json('scieries-bons.json', orient='records')
+    df_merge.to_json('scieries-bons.json', orient='records')
+except:
+    import json
+    # Export an empty scieries-bons.json file
+    with open('scieries-bons.json', 'w') as file:
+        json.dump([], file)
