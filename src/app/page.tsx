@@ -62,6 +62,7 @@ export default function Page() {
 
   return (
     <div className="container mx-auto mt-8">
+      <img src="pub-1.jpg" alt="Advertisement" className="mb-8" />
       <h1 className="text-4xl mb-4">Scieries LAH</h1>
       <div className="grid lg:grid-cols-2 gap-4">
         <div><TeamPlayers id={1} data={bons} /></div>
