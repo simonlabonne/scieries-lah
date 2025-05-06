@@ -40,7 +40,7 @@ export default function Page() {
     const totalPoints = teamPlayers.reduce((total, p) => total + p.points, 0);
 
     return (
-      <div className="mb-4 lg:mb-16">
+      <div className="mb-16">
         <h2 className="text-2xl mb-2">{id} - {teamName}</h2>
         <table className="table-auto">
           <tbody>
@@ -61,23 +61,30 @@ export default function Page() {
   }
 
   return (
-    <div className="container mx-auto mt-8 px-2 lg:px-0">
+    <div className="max-w-[970px] mx-auto my-8 px-2 lg:px-0">
       <img src="pub-1.jpg" alt="Advertisement" className="mx-auto mb-8" />
-      <h1 className="text-4xl mb-4">Scieries LAH</h1>
-      <div className="grid lg:grid-cols-2 gap-4">
-        <div><TeamPlayers id={1} data={bons} /></div>
-        <div><TeamPlayers id={7} data={bons} /></div>
-      </div>
-      <hr className="mb-16" />
-      <div className="grid lg:grid-cols-2 gap-4">
-        <div><TeamPlayers id={6} data={bons} /></div>
-        <div><TeamPlayers id={5} data={bons} /></div>
-      </div>
-      <h2 className="text-4xl mb-4">Pool des poches</h2>
-      <div className="grid lg:grid-cols-3 gap-4">
-        <div><TeamPlayers id={9} data={poches} /></div>
-        <div><TeamPlayers id={10} data={poches} /></div>
-        <div><TeamPlayers id={11} data={poches} /></div>
+      <h1 className="text-4xl mb-8">Scieries LAH</h1>
+      <div className="lg:flex justify-between gap-8">
+        <div className="flex-grow">
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div><TeamPlayers id={1} data={bons} /></div>
+            <div><TeamPlayers id={7} data={bons} /></div>
+          </div>
+          <hr className="mb-16" />
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div><TeamPlayers id={5} data={bons} /></div>
+            <div><TeamPlayers id={6} data={bons} /></div>
+          </div>
+          <h2 className="text-4xl mb-8">Pool des poches</h2>
+          <div className="grid lg:grid-cols-3 lg:gap-8">
+            <div><TeamPlayers id={9} data={poches} /></div>
+            <div><TeamPlayers id={10} data={poches} /></div>
+            <div><TeamPlayers id={11} data={poches} /></div>
+          </div>
+        </div>
+        <div>
+          <img src="pub-2.jpg" alt="Advertisement" />
+        </div>
       </div>
     </div>
   );

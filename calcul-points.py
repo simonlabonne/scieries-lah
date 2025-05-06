@@ -75,7 +75,4 @@ try:
 
     df_merge.to_json('scieries-bons.json', orient='records')
 except:
-    import json
-    # Export an empty scieries-bons.json file
-    with open('scieries-bons.json', 'w') as file:
-        json.dump([], file)
+    bons.to_json('scieries-bons.json', orient='records')
