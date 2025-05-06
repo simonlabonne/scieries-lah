@@ -37,9 +37,17 @@ nhl_stats = nhl_stats.drop(['points'], axis=1)
 
 df_merge = pd.merge(nhl_stats, poches, how="outer", left_on="skaterFullName", right_on="player")
 df_merge = df_merge.dropna(subset=['player'])
+
+# Ajustements manuels ronde 2
+df_merge.loc[df_merge['player'] == 'Logan Stankoven', 'goals'] = df_merge.loc[df_merge['player'] == 'Logan Stankoven', 'goals'] - 2
+df_merge.loc[df_merge['player'] == 'Logan Stankoven', 'assists'] = df_merge.loc[df_merge['player'] == 'Logan Stankoven', 'assists'] - 1
+df_merge.loc[df_merge['player'] == 'Anton Lundell', 'goals'] = df_merge.loc[df_merge['player'] == 'Anton Lundell', 'goals'] - 2
+df_merge.loc[df_merge['player'] == 'Anton Lundell', 'assists'] = df_merge.loc[df_merge['player'] == 'Anton Lundell', 'assists'] - 3
+
 df_merge['points'] = df_merge.apply(calculate_points, axis=1)
 df_merge = df_merge.sort_values(by=['points'], ascending=False)
 df_merge['points'] = df_merge['points'].fillna(0)
+
 
 df_merge.to_json('scieries-poches.json', orient='records')
 
