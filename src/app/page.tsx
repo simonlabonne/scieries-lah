@@ -68,11 +68,6 @@ export default function Page() {
         <div className="flex-grow">
           <div className="grid lg:grid-cols-2 gap-8">
             <div><TeamPlayers id={1} data={bons} /></div>
-            <div><TeamPlayers id={7} data={bons} /></div>
-          </div>
-          <hr className="mb-16" />
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div><TeamPlayers id={5} data={bons} /></div>
             <div><TeamPlayers id={6} data={bons} /></div>
           </div>
           <h2 className="text-4xl mb-8">Pool des poches</h2>
