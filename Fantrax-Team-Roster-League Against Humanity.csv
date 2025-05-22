@@ -1,10 +1,6 @@
 pos,player,name,id,categorie
-D,Jakob Chychrun,Grillades,1,bons
 D,Miro Heiskanen,Grillades,1,bons
-D,Morgan Rielly,Grillades,1,bons
 F,Aleksander Barkov,Grillades,1,bons
-F,Jack Eichel,Grillades,1,bons
-F,Tomas Hertl,Grillades,1,bons
 G,Jake Oettinger,Grillades,1,bons
 D,Seth Jones,Moisonneurs,5,bons
 F,Andrei Svechnikov,Moisonneurs,5,bons
@@ -15,12 +11,8 @@ F,Tom Wilson,Moisonneurs,5,bons
 G,Sergei Bobrovsky,Moisonneurs,5,bons
 D,Evan Bouchard,Perchaudes,6,bons
 F,Connor McDavid,Perchaudes,6,bons
-F,Nikolaj Ehlers,Perchaudes,6,bons
 F,Zach Hyman,Perchaudes,6,bons
 F,Mason Marchment,Perchaudes,6,bons
-F,William Karlsson,Perchaudes,6,bons
-G,Connor Hellebuyck,Perchaudes,6,bons
-G,Adin Hill,Perchaudes,6,bons
 F,Leon Draisaitl,Dentiers,7,bons
 F,William Nylander,Dentiers,7,bons
 F,John Tavares,Dentiers,7,bons
