@@ -91,7 +91,7 @@ export default function Page() {
         </div>
         <div>
           <img src="pub-2.jpg" alt="Advertisement" className='mb-16' />
-          <img src="pub-3.jpg" alt="Advertisement" />
+          <img src="pub-4.png" alt="Advertisement" />
         </div>
       </div>
     </div>
