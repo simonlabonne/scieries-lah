@@ -53,7 +53,7 @@ df_merge.to_json('scieries-poches.json', orient='records')
 compiler = []
 start = 0
 # Round 1
-start_date = '2025-04-18'
+start_date = '2026-04-18'
 # Round 2
 # start_date = '2025-05-05'
 # Round 3 et 4
