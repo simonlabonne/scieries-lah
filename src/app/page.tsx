@@ -1,4 +1,4 @@
-'use client';
+    'use client';
 
 import { useEffect, useState } from 'react';
 
@@ -71,15 +71,11 @@ export default function Page() {
             <div><TeamPlayers id={8} data={bons} /></div>
           </div>
           <div className="grid lg:grid-cols-2 gap-8">
-            <div><TeamPlayers id={2} data={bons} /></div>
-            <div><TeamPlayers id={7} data={bons} /></div>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-8">
+            <div>TBD</div>
             <div><TeamPlayers id={3} data={bons} /></div>
-            <div><TeamPlayers id={6} data={bons} /></div>
           </div>
           <div className="grid lg:grid-cols-2 gap-8">
-            <div><TeamPlayers id={4} data={bons} /></div>
+            <div><TeamPlayers id={7} data={bons} /></div>
             <div><TeamPlayers id={5} data={bons} /></div>
           </div>
           <h2 className="text-4xl mb-8">Pool des poches</h2>
