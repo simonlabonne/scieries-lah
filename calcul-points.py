@@ -55,7 +55,7 @@ start = 0
 # Round 1
 start_date = '2026-04-18'
 # Round 2
-# start_date = '2025-05-05'
+start_date = '2025-05-02'
 # Round 3 et 4
 # start_date = '2025-05-20'
 
