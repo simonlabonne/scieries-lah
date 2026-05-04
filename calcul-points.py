@@ -39,8 +39,8 @@ df_merge = pd.merge(nhl_stats, poches, how="outer", left_on="skaterFullName", ri
 df_merge = df_merge.dropna(subset=['player'])
 
 # Ajustements manuels ronde 2
-# df_merge.loc[df_merge['player'] == 'Logan Stankoven', 'goals'] = df_merge.loc[df_merge['player'] == 'Logan Stankoven', 'goals'] - 2
-# df_merge.loc[df_merge['player'] == 'Logan Stankoven', 'assists'] = df_merge.loc[df_merge['player'] == 'Logan Stankoven', 'assists'] - 1
+df_merge.loc[df_merge['player'] == 'Jakub Dobesn', 'wins'] = df_merge.loc[df_merge['player'] == 'Jakub Dobes', 'wins'] - 1
+df_merge.loc[df_merge['player'] == 'Lane Hutson', 'assists'] = df_merge.loc[df_merge['player'] == 'Lane Hutson', 'assists'] - 1
 # df_merge.loc[df_merge['player'] == 'Anton Lundell', 'goals'] = df_merge.loc[df_merge['player'] == 'Anton Lundell', 'goals'] - 2
 # df_merge.loc[df_merge['player'] == 'Anton Lundell', 'assists'] = df_merge.loc[df_merge['player'] == 'Anton Lundell', 'assists'] - 3
 
