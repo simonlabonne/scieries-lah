@@ -49,9 +49,9 @@ start = 0
 # Round 1
 # start_date = '2026-04-18'
 # Round 2
-start_date = '2026-05-02'
+# start_date = '2026-05-02'
 # Round 3 et 4
-# start_date = '2026-05-20'
+start_date = '2026-05-20'
 
 while True:
     data = get_data("https://api.nhle.com/stats/rest/en/skater/summary?isAggregate=true&isGame=true&sort=%5B%7B%22property%22:%22points%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22goals%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22assists%22,%22direction%22:%22DESC%22%7D,%7B%22property%22:%22playerId%22,%22direction%22:%22ASC%22%7D%5D&start="+str(start)+"&limit=100&cayenneExp=gameDate%3C=%222034-10-28%2023%3A59%3A59%22%20and%20gameDate%3E=%22"+start_date+"%22%20and%20gameTypeId=3")
