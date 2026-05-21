@@ -67,12 +67,8 @@ export default function Page() {
       <div className="lg:flex justify-between gap-8">
         <div className="flex-grow">
           <div className="grid lg:grid-cols-2 gap-8">
-            <div><TeamPlayers id={1} data={bons} /></div>
-            <div><TeamPlayers id={7} data={bons} /></div>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-8">
             <div><TeamPlayers id={3} data={bons} /></div>
-            <div><TeamPlayers id={5} data={bons} /></div>
+            <div><TeamPlayers id={7} data={bons} /></div>
           </div>
           <h2 className="text-4xl mb-8">Pool des poches</h2>
           <div className="grid lg:grid-cols-3 lg:gap-8">
