@@ -75,8 +75,8 @@ df_merge = pd.merge(nhl_stats, bons, how="outer", left_on="skaterFullName", righ
 df_merge = df_merge.dropna(subset=['player'])
 
 # Ajustements manuels ronde 2
-df_merge.loc[df_merge['player'] == 'Jakub Dobes', 'wins'] = df_merge.loc[df_merge['player'] == 'Jakub Dobes', 'wins'] - 1
-df_merge.loc[df_merge['player'] == 'Lane Hutson', 'assists'] = df_merge.loc[df_merge['player'] == 'Lane Hutson', 'assists'] - 1
+# df_merge.loc[df_merge['player'] == 'Jakub Dobes', 'wins'] = df_merge.loc[df_merge['player'] == 'Jakub Dobes', 'wins'] - 1
+# df_merge.loc[df_merge['player'] == 'Lane Hutson', 'assists'] = df_merge.loc[df_merge['player'] == 'Lane Hutson', 'assists'] - 1
 
 df_merge['points'] = df_merge.apply(calculate_points, axis=1)
 df_merge = df_merge.sort_values(by=['points'], ascending=False)
